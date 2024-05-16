@@ -12,7 +12,7 @@ import paquete2.Profesor;
  *
  * @author reroes
  */
-public class ManejoArrayList1 {
+public class ManejoArrayList5 {
     public static void main(String[] args) {
         Profesor prof1 = new Profesor("Joseph Jimenez", "facturado");
         Profesor prof2 = new Profesor("David Jones", "nombramiento");
@@ -46,8 +46,10 @@ public class ManejoArrayList1 {
         profesores2.add(prof3);
         
         for (int i = 0; i < profesores2.size(); i++) {
-            System.out.printf("%s - %s\n", profesores2.get(i).obtenerNombre(),
-                    profesores2.get(i).obtenerTipo());
+            System.out.printf("%s", profesores2.get(i));
+            // profesores2.get(i) es un objeto de tipo Profesor en x posicion
+            // esto se realiza en un arreglo para ir agregando mas objetos sin
+            // algun limite
         }
     }
 }
