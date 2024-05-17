@@ -15,16 +15,15 @@ public class Venta {
     private double valorVenta;
     private ArrayList<Computador> computadoras;
 
-    public Venta(double v, ArrayList<Computador> c) {
-        valorVenta = v;
+    public Venta( ArrayList<Computador> c) {
         computadoras = c;
     }
 
-    public void establecerValorVenta(double v) {
+    public void establecerValorVenta() {
         for (int i = 0; i < computadoras.size(); i++) {
-           valorVenta = valorVenta + computadoras.get(i).obtenerCosto();
+            valorVenta = valorVenta + computadoras.get(i).obtenerCosto();
         }
-        
+
     }
 
     public void establecerComputadoras(ArrayList<Computador> c) {
@@ -39,16 +38,25 @@ public class Venta {
         return computadoras;
 
     }
+
     @Override
-    public String toString(){
-    String cadena = String.format("Marca de Computador: %s\nProcesador de la"
-            + " computadora: %s\nMemoria de la computadora: %s\nCosto de la "
-            + "computadora: %.2f"
-            + "---------------------------------------------------------", 
-            obtenerMarca(),procesador.obtenerMarca(),
-            memoria.obtenerMarca(),costoComputador);
-    return cadena;
+    public String toString() {
+        String cadena = "";
+        for (int i = 0; i < computadoras.size(); i++) {
+            cadena = String.format("%sMarca de Computador: %s\nProcesador de la"
+                    + " computadora: %s\nMemoria de la computadora: %s\nCosto "
+                    + "de la "
+                    + "computadora: %.2f\n"
+                    + "---------------------------------------------------------"
+                    + "\n",
+                    cadena,computadoras.get(i).obtenerMarca(), 
+                    computadoras.get(i).obtenerProcesador().obtenerMarca(), 
+                    computadoras.get(i).obtenerMemoria().obtenerMarca(),
+                    valorVenta);
+
+        }
+
+        return cadena;
     }
-    
 
 }

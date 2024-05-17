@@ -39,9 +39,12 @@ public class Ejecutor {
             Procesador procesador = new Procesador(marca1, costo1);
             Memoria memoria = new Memoria(marca2, costo2);
             Computador computador = new Computador(marcaPc,procesador,memoria);
+            computador.establecerCosto(memoria,procesador);
             computadoras.add(computador);
         }
-        System.out.printf("%s",Venta);
+        Venta venta = new Venta(computadoras);
+        venta.establecerValorVenta();
+        System.out.printf("%s",venta);
     }
 
 }
