@@ -44,17 +44,16 @@ public class Venta {
         String cadena = "";
         for (int i = 0; i < computadoras.size(); i++) {
             cadena = String.format("%sMarca de Computador: %s\nProcesador de la"
-                    + " computadora: %s\nMemoria de la computadora: %s\nCosto "
-                    + "de la "
-                    + "computadora: %.2f\n"
+                    + " computadora: %s\nMemoria de la computadora: %s\n"
                     + "---------------------------------------------------------"
                     + "\n",
                     cadena,computadoras.get(i).obtenerMarca(), 
                     computadoras.get(i).obtenerProcesador().obtenerMarca(), 
-                    computadoras.get(i).obtenerMemoria().obtenerMarca(),
-                    valorVenta);
+                    computadoras.get(i).obtenerMemoria().obtenerMarca());
 
         }
+        cadena = String.format("%sCosto de todas las computadora: %.2f\n",
+                cadena,valorVenta);
 
         return cadena;
     }
