@@ -21,7 +21,7 @@ public class Ejecutor {
         
         ArchivoEscritura archivo = new ArchivoEscritura(nombreArchivo);
         // Crea el archivo en la ruta designada y el contructor llama un String
-        // el cual sera el nombre que se le dara al archivo txt.
+        // el cual sera el nombre que se le dara al archivo txt..
         
         // establecer el valor del atributo registro
         archivo.establecerRegistro(profesor1);
