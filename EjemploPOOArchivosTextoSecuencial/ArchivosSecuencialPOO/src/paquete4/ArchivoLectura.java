@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package paquete3;
+package paquete4;
 
+import paquete3.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import paquete1.Calificacion;
 import paquete1.Profesor;
 
 public class ArchivoLectura {
@@ -19,7 +19,7 @@ public class ArchivoLectura {
     private Scanner entrada;
     private String nombreArchivo;
     private String rutaArchivo;
-    private ArrayList<Calificacion> lista;
+    private ArrayList<Empresa> lista;
 
     public ArchivoLectura(String n) {
         nombreArchivo = n;
@@ -68,35 +68,21 @@ public class ArchivoLectura {
                 // "%s;%.2f;%s|%s"
                 // Computación;10,00;Tara Hernandez|contratado
                 ArrayList<String> linea_partes = new ArrayList<>(
-                        Arrays.asList(linea.split(";")));
-                // ["Computación", "10,00", "Tara Hernandez|contratado"]
-                //       0             1                2
-                // los dos primeros parametros se los relaciona
-                // con materia y nota
-                String materia = linea_partes.get(0);
-                double nota = Double.parseDouble(linea_partes.
-                        get(1).replace(",", "."));
-                String profesor = linea_partes.get(2);
+                        Arrays.asList(linea.split("-")));
+                
+                String nombre = linea_partes.get(0);
+                String ciudad = linea_partes.get(1);
 
-                ArrayList<String> cadenaProfesor = new ArrayList<>(
-                        // Para un caracter distinto de "." "," ";" se usara
-                        // "//" seguido del caracter de separacion. 
-                        Arrays.asList(profesor.split("\\|")));
-                // ["Tara Hernandez", "contratado"]
-                //        0                 1
-
-                Profesor p = new Profesor(cadenaProfesor.get(0),
-                        cadenaProfesor.get(1));
-
-                Calificacion cal = new Calificacion(nota, materia);
-                cal.establecerProfesor(p);
-                lista.add(cal);
+                Empresa p = new Empresa(nombre,
+                        ciudad);
+                
+                lista.add(p);
 
             } // fin de while
         }
     }
 
-    public ArrayList<Calificacion> obtenerLista() {
+    public ArrayList<Empresa> obtenerLista() {
 
         return lista;
     }
@@ -110,15 +96,12 @@ public class ArchivoLectura {
 
     @Override
     public String toString() {
-        String cadena = "Lista Calificaciones\n";
+        String cadena = "Empresa\n";
 
         for (int i = 0; i < obtenerLista().size(); i++) {
-            cadena = String.format("%s(%d) %s %.2f (%s %s)\n", cadena,
-                    i + 1,
-                    obtenerLista().get(i).obtenerNombreMateria(),
-                    obtenerLista().get(i).obtenerNota(),
-                    obtenerLista().get(i).obtenerProfesor().obtenerNombre(),
-                    obtenerLista().get(i).obtenerProfesor().obtenerTipo());
+            cadena = String.format("%s%s-%s\n",
+                    cadena,obtenerLista().get(i).obtenerNombre(),
+                    obtenerLista().get(i).obtenerCiudad());
         }
 
         return cadena;
