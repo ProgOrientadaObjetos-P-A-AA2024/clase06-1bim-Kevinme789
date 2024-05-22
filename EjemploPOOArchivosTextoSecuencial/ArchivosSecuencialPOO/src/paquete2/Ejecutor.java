@@ -20,6 +20,8 @@ public class Ejecutor {
         
         
         ArchivoEscritura archivo = new ArchivoEscritura(nombreArchivo);
+        // Crea el archivo en la ruta designada y el contructor llama un String
+        // el cual sera el nombre que se le dara al archivo txt.
         
         // establecer el valor del atributo registro
         archivo.establecerRegistro(profesor1);
@@ -38,6 +40,7 @@ public class Ejecutor {
         
         // proceso para lectura del archivo
         ArchivoLectura lectura = new ArchivoLectura(nombreArchivo);
+        // Guarda linea por linea en un ArrayList de tipo profesor.
         lectura.establecerLista();
         // System.out.println(lectura.toString());
         System.out.println(lectura);

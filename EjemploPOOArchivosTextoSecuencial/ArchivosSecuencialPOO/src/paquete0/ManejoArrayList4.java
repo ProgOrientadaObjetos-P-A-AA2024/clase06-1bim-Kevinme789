@@ -20,13 +20,13 @@ public class ManejoArrayList4 {
         String linea = "Tara Hernandez;contratado";
 
         ArrayList<String> linea_partes = new ArrayList<>(
-                
                 Arrays.asList(linea.split(";")
-                
                 ) // ["Tara Hernandez", "contratado"]
         );
-        Profesor p = new Profesor(linea_partes.get(0), // Tara Hernandez
-                linea_partes.get(1)); // contratado;
+        String valor1 = linea_partes.get(0);
+        String valor2 = linea_partes.get(1);
+        Profesor p = new Profesor(valor1, // Tara Hernandez
+                valor2); // contratado;
 
         System.out.println(p);
     }
